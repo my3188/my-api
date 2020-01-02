@@ -2,6 +2,7 @@ from flask import Blueprint
 
 # 两个参数分别指定蓝本的名字、蓝本所在的包或模块
 api = Blueprint('api', __name__)
+# print('------api-----__init__.py----')
 
 """
  导入路由模块、错误处理模块，将其和蓝本关联起来
@@ -12,4 +13,4 @@ api = Blueprint('api', __name__)
     为了避免循环导入依赖，因为在 app/views.py 中还要导入api蓝本，所以除非循环引用出现在定义 api 之后，否则会致使导入出错。
 
 """
-from app.api import views, error
+from app.api import views, errors

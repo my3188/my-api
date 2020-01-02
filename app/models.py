@@ -49,6 +49,7 @@ def getHomepageData():
     result['banner'] = [banner.to_json() for banner in banners]
     # 获取homepage
     first = Video.query.filter_by(theme='hot').all()
+    print('----first---',type(first))
     second = Video.query.filter_by(theme='dramatic').all()
     third = Video.query.filter_by(theme='idol').all()
     if len(first) and len(second) and len(third):

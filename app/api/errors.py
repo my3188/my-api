@@ -8,6 +8,7 @@ from . import api
 @api.app_errorhandler(404)
 def page_not_found(e):
     """这个handler可以catch住所有abort(404)以及找不到对应router的处理请求"""
+    print('-------404-----------')
     return jsonify({'error': '没有找到您想要的资源', 'code': '404', 'data': ''})
 
 

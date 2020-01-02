@@ -10,6 +10,8 @@ def homepage():
      1、如果接收到的请求url没有带"/"，则会自动补上，同时响应视图函数
      2、如果/v1.0/homePage/这条路由的结尾没有带"/"，则接收到的请求里也不能以"/"结尾，否则无法响应
     """
+
+    print('-----homepage----')
     response = jsonify(code=200,
                        msg="success",
                        data=getHomepageData())

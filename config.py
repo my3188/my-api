@@ -25,7 +25,7 @@ class DevelopmentConfig(Config):
     """
     DEBUG = True
     # 数据库URI
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:My123456+@127.0.0.1:3306/my-api'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:my123456@localhost:3306/my-api'
 
     # 也可如下来写，比较清晰
     # SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{hostname}/{databasename}".format(username="xxxx", password="123456", hostname="172.17.180.2", databasename="cleven_development")

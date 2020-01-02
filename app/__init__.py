@@ -7,7 +7,6 @@ db = SQLAlchemy()
 
 
 def create_app(config_name):
-    print('config_name-1-----', config)
     # 初始化
     app = Flask(__name__)
 
@@ -16,10 +15,8 @@ def create_app(config_name):
 
     # 初始化扩展（数据库）
     db.init_app(app)
-    print('config_name-2-----', config_name)
     # 创建数据库表
     create_tables(app)
-    print('config_name-3-----', config_name)
     # 注册所有蓝本
     regist_blueprints(app)
 
