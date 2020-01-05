@@ -60,3 +60,48 @@ def getHomepageData():
         return result
     else:
         abort(404)
+
+
+class Role(db.Model):
+    """用户角色/身份表"""
+    __tablename__ = "tbl_roles"  # 表名
+
+    # 字段名        类型         约束
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(32), unique=True)
+
+    # 1方定义关系  反向引用
+    users = db.relationship("User", backref="role")
+
+    def __repr__(self):
+        """定义之后，可以让显示对象的时候更直观 而不是显示内存地址"""
+        return "Role object: name=%s" % self.name
+
+
+class User(db.Model):
+    """用户表"""
+    __tablename__ = "tbl_users"  # 指明数据库的表名
+
+    id = db.Column(db.Integer, primary_key=True)  # 整型的主键，会默认设置为自增主键
+    name = db.Column(db.String(64), unique=True)
+    email = db.Column(db.String(128), unique=True)
+    password = db.Column(db.String(128))
+
+    # 多方定义外键 指向1方主键
+    role_id = db.Column(db.Integer, db.ForeignKey("tbl_roles.id"))
+
+    def __repr__(self):
+        return "User object: name=%s" % self.name
+
+
+class User3(db.Model):
+    """用户表"""
+    __tablename__ = "tbl_users5"  # 指明数据库的表名
+
+    id = db.Column(db.Integer, primary_key=True)  # 整型的主键，会默认设置为自增主键
+    name = db.Column(db.String(64), unique=True)
+    email = db.Column(db.String(128), unique=True)
+    password = db.Column(db.String(128))
+
+    def __repr__(self):
+        return "User object: name=%s" % self.name

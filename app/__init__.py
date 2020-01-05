@@ -45,5 +45,6 @@ def create_tables(app):
     2、但是，如果db是在模型模块中创建的，同时在此处 from app.models import db 引用db,则就实现了
     模型和数据库的绑定，不需要再单独导入模型模块了。
     """
-    from app.models import Video
+    from app.models import Video,Role,User
+    # import app.models 
     db.create_all(app=app)
